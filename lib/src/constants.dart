@@ -1,0 +1,3 @@
+const int CHARACTER_SPACE = 32;
+const int CHARACTER_RANGE_LOW = 32;
+const int MAX_UNICODE_POINT = 173782;
