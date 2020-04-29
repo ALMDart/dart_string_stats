@@ -1,7 +1,7 @@
 import 'package:string_stats/src/position.dart';
 import 'package:string_stats/src/utils.dart';
 
-Set<Position> allPostionsWord(String str, String word) {
+Set<Position> allPositionsWord(String str, String word) {
   if (isNull(str) || isNull(word) || str.isEmpty || word.isEmpty) return <Position>{};
   final out = <Position>{};
   var sb = StringBuffer();

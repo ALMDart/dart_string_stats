@@ -72,20 +72,20 @@ void processing_function_tests() {
 
     });
 
-    test('firstPositionWord works', () {
-      expect(allPostionsWord('',null).length, 0);
-      expect(allPostionsWord(null,null).length, 0);
-      expect(allPostionsWord(null,'').length, 0);
-      expect(allPostionsWord('','').length, 0);
+    test('allPositionsWord works', () {
+      expect(allPositionsWord('',null).length, 0);
+      expect(allPositionsWord(null,null).length, 0);
+      expect(allPositionsWord(null,'').length, 0);
+      expect(allPositionsWord('','').length, 0);
 
-      expect(allPostionsWord(' word ', 'word').length, 1);
-      expect(allPostionsWord(' word ', 'word').first.end, 4);
-      expect(allPostionsWord(' word ', 'word').first.length, 4);
+      expect(allPositionsWord(' word ', 'word').length, 1);
+      expect(allPositionsWord(' word ', 'word').first.end, 4);
+      expect(allPositionsWord(' word ', 'word').first.length, 4);
 
-      expect(allPostionsWord('mineral apple mineral coral mineral', 'mineral').length, 3);
-      expect(allPostionsWord('mineral apple mineral coral mineral', 'mineral').last.length, 7);
-      expect(allPostionsWord('mineral apple mineral coral mineral', 'mineral').last.start, 28);
-      expect(allPostionsWord('mineral apple mineral coral mineral', 'mineral').last.end, 34);
+      expect(allPositionsWord('mineral apple mineral coral mineral', 'mineral').length, 3);
+      expect(allPositionsWord('mineral apple mineral coral mineral', 'mineral').last.length, 7);
+      expect(allPositionsWord('mineral apple mineral coral mineral', 'mineral').last.start, 28);
+      expect(allPositionsWord('mineral apple mineral coral mineral', 'mineral').last.end, 34);
     });
 
     test('firstPositionWord works', () {
@@ -228,57 +228,5 @@ void processing_function_tests() {
 
       expect(allCharFrequency('mississippi@#^*^&*^&*^&ss \n')['s'], 6);
     });
-
-//    test('wordCountClosure works', () {
-//      var wordCountSum = wordCountClosure();
-//      expect(wordCountSum(null), 0);
-//
-//      expect(wordCountSum(' 12345 '), 1);
-//      expect(wordCountSum('12 345\n 6'), 4);
-//
-//      expect(wordCountSum(''), 4);
-//      expect(wordCountSum(' '), 4);
-//      expect(wordCountSum('\t'), 4);
-//      expect(wordCountSum('\r'), 4);
-//      expect(wordCountSum('\n'), 4);
-//      expect(wordCountSum('\n\r'), 4);
-//
-//      expect(wordCountSum('\n\r% s @ # (a\\|'), 9);
-//      // word continues on
-//      expect(wordCountSum('12345'), 9);
-//    });
-
-//    test('countCharClosure works', () {
-//      var countCharSum = countCharClosure('a');
-//      expect(countCharSum(null), 0);
-//      expect(countCharSum(null), 0);
-//      expect(countCharSum(''), 0);
-//
-//      expect(countCharSum(' 12345 '), 0);
-//      expect(countCharSum('12 345\n 6'), 0);
-//
-//      expect(countCharSum('aabaa aaa'), 7);
-//      expect(countCharSum('aaba\na a\taa'), 14);
-//      expect(countCharSum('\t\t'), 14);
-//      expect(countCharSum('\n\n\n'), 14);
-//    });
-//
-//    test('charCountClosure works', () {
-//      var countClosure = charCountClosure();
-//
-//      expect(countClosure(null), 0);
-//
-//      expect(countClosure('12345'), 5);
-//      expect(countClosure('12345\n 6'), 12);
-//
-//      expect(countClosure(''), 12);
-//      expect(countClosure(' '), 13);
-//      expect(countClosure('\t'), 13);
-//      expect(countClosure('\r'), 13);
-//      expect(countClosure('\n'), 13);
-//      expect(countClosure('\n\r'), 13);
-//
-//      expect(countClosure('\n\r%s@#(a\\|'), 21);
-//    });
   });
 }

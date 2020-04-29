@@ -3,12 +3,12 @@ import 'package:string_stats/src/processing_functions.dart';
 import 'package:string_stats/src/utils.dart';
 
 class WordFrequencyCounter {
-  final String _word;
   int _count = 0;
 
   int get count => _count;
   int _lastPos = 0;
 
+  final String _word;
   WordFrequencyCounter(String word) : _word = word;
 
   WordFrequencyCounter.fromString(String str, String word) : _word = word {
