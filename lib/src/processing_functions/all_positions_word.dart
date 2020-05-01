@@ -1,8 +1,8 @@
 import 'package:string_stats/src/position.dart';
 import 'package:string_stats/src/utils.dart';
 
+/// Determines all of the [Position]s of a word in parameter string str
 Set<Position> allPositionsWord(String str, String word) {
-  if (isNull(str) || isNull(word) || str.isEmpty || word.isEmpty) return <Position>{};
   final out = <Position>{};
   var sb = StringBuffer();
   final chars = str.split('');

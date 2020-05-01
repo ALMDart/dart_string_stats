@@ -24,8 +24,6 @@ void processing_class_tests() {
 
     test('CharCounter works', () {
       var countCharSum = CharCounter();
-      expect(countCharSum.add(null), 0);
-      expect(countCharSum.add(null), 0);
       expect(countCharSum.add(''), 0);
 
       expect(countCharSum.add(' 12345 '), 7);
@@ -40,7 +38,6 @@ void processing_class_tests() {
     test('CharFrequencyCounter works', () {
       var counter = CharFrequencyCounter('a');
 
-      expect(counter.add(null), 0);
       expect(counter.add('a'), 1);
       expect(counter.add('a'), 2);
       expect(counter.add('hfdtfdthfdh5 y'), 2);
@@ -98,7 +95,6 @@ void processing_class_tests() {
     test('AllCharFrequencyCounter works', () {
       var counter = AllCharFrequencyCounter();
 
-      expect(counter.add(null).isEmpty, isTrue);
       expect(counter.add('').isEmpty, isTrue);
 
       expect(counter.add('aabbcc').length, 3);

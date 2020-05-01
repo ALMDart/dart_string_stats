@@ -1,7 +1,6 @@
 import 'package:string_stats/src/utils.dart';
 
 int wordCount(String str, {bool inWord = false}) {
-  if (isNull(str)) return 0;
   var _wordCount = 0;
   var _inWord = inWord;
   var _hasSeenWhiteSpace = false;

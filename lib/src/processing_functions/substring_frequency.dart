@@ -1,7 +1,6 @@
 import 'package:string_stats/src/utils.dart';
 
 int subStringFrequency(String str, String substr, {int lastPos = 0}) {
-  if (isNull(str) || isNull(substr) || isNull(lastPos) || str.isEmpty || substr.isEmpty) return 0;
   var _substrFrequency = 0;
 
   final stringLength = str.length;

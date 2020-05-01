@@ -2,7 +2,6 @@ import 'package:string_stats/src/position.dart';
 import 'package:string_stats/src/utils.dart';
 
 Map<String, Set<Position>> allWordsPositions(String str) {
-  if (isNull(str) || str.isEmpty) return <String, Set<Position>>{};
   final out = <String, Set<Position>>{};
   var sb = StringBuffer();
   final chars = str.split('');

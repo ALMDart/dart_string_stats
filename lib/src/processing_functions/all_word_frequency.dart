@@ -1,7 +1,15 @@
 import 'package:string_stats/src/utils.dart';
 
+// TODO Add support for punctuation and new lines
+
+/// Returns the frequency of all words in a given string str.
+///
+/// The default behavior of the function is to count the last word a string
+/// as a word even if it ends without a new lines
+/// leftOvers and continues allows for incremental counting over a string
+/// over multiple calls. leftOvers is what remained of a word from a previous
+/// string
 Map<String, int> allWordFrequency(String str, { String leftOvers = '', bool continues = false}) {
-  if (isNull(str) || str.isEmpty) return <String, int>{};
   final out = <String, int>{};
   var sb = StringBuffer();
   sb.write(leftOvers);

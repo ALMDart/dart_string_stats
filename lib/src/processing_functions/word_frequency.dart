@@ -1,7 +1,6 @@
 import 'package:string_stats/src/utils.dart';
 
 int wordFrequency(String str, String word, {int lastPos = 0}) {
-  if (isNull(str) || isNull(word) || isNull(lastPos) || str.isEmpty || word.isEmpty) return 0;
   var _wordFrequency = 0;
   final stringLength = str.length;
   final wordLength = word.length;

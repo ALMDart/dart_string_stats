@@ -1,7 +1,6 @@
 import 'package:string_stats/src/utils.dart';
 
 Set<int> linesAllSpaces(String str) {
-  if (isNull(str) || str.isEmpty) return <int>{};
   final out = <int>{};
   var line = 0;
   var allSpaces = true;
@@ -14,6 +13,6 @@ Set<int> linesAllSpaces(String str) {
       allSpaces = false;
     }
   }
-  if(allSpaces && !out.contains(line)) out.add(line);
+  if(allSpaces && !out.contains(line) && str.isNotEmpty) out.add(line);
   return out;
 }

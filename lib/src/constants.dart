@@ -1,3 +1,12 @@
-const int CHARACTER_SPACE = 32;
-const int CHARACTER_RANGE_LOW = 32;
-const int MAX_UNICODE_POINT = 173782;
+final int CHARACTER_SPACE = 32;
+final int CHARACTER_RANGE_LOW = 32;
+final int MAX_UNICODE_POINT = 173782;
+
+final int NUMBER_RANGE_LOW = 48;
+final int NUMBER_RANGE_HIGH = 57;
+
+final int LOWER_CASE_RANGE_LOW = 97;
+final int LOWER_CASE_RANGE_HIGH = 122;
+
+final int UPPER_CASE_RANGE_LOW = 65;
+final int UPPER_CASE_RANGE_HIGH = 90;

@@ -5,8 +5,6 @@ import 'package:test/test.dart';
 void processing_function_tests() {
   group('processing_function_tests', () {
     test('charCount works', () {
-      expect(charCount(null), 0);
-
       expect(charCount('12345'), 5);
       expect(charCount('12345\n 6'), 7);
 
@@ -21,8 +19,6 @@ void processing_function_tests() {
     });
 
     test('wordCount works', () {
-      expect(wordCount(null), 0);
-
       expect(wordCount(' 12345 '), 1);
       expect(wordCount('12 345\n 6'), 3);
 
@@ -37,8 +33,6 @@ void processing_function_tests() {
     });
 
     test('charFrequency works', () {
-      expect(charFrequency(null, null), 0);
-      expect(charFrequency(null, ''), 0);
       expect(charFrequency('', '23'), 0);
 
       expect(charFrequency(' 12345 ', 'a'), 0);
@@ -58,8 +52,6 @@ void processing_function_tests() {
 
     test('firstPositionWord works', () {
       expect(firstPositionWord('',null), null);
-      expect(firstPositionWord(null,null), null);
-      expect(firstPositionWord(null,''), null);
       expect(firstPositionWord('',''), null);
 
       expect(firstPositionWord(' word ', 'word').start, 1);
@@ -73,9 +65,6 @@ void processing_function_tests() {
     });
 
     test('allPositionsWord works', () {
-      expect(allPositionsWord('',null).length, 0);
-      expect(allPositionsWord(null,null).length, 0);
-      expect(allPositionsWord(null,'').length, 0);
       expect(allPositionsWord('','').length, 0);
 
       expect(allPositionsWord(' word ', 'word').length, 1);
@@ -90,7 +79,6 @@ void processing_function_tests() {
 
     test('firstPositionWord works', () {
       expect(allWordsPositions('').length, 0);
-      expect(allWordsPositions(null).length, 0);
 
       expect(allWordsPositions(' word ').length, 1);
       expect(allWordsPositions(' word ')['word'].length, 1);
@@ -110,9 +98,6 @@ void processing_function_tests() {
     });
 
     test('wordFrequency works', () {
-      expect(wordFrequency(null, null), 0);
-      expect(wordFrequency('a', null), 0);
-      expect(wordFrequency(null, 'a'), 0);
       expect(wordFrequency('', 'a'), 0);
       expect(wordFrequency('a', ''), 0);
 
@@ -135,9 +120,6 @@ void processing_function_tests() {
     });
 
     test('subStringFrequency works', () {
-      expect(subStringFrequency(null, null), 0);
-      expect(subStringFrequency('a', null), 0);
-      expect(subStringFrequency(null, 'a'), 0);
       expect(subStringFrequency('', 'a'), 0);
       expect(subStringFrequency('a', ''), 0);
 
@@ -174,7 +156,6 @@ void processing_function_tests() {
     });
 
     test('nonEmptyLineCount works', () {
-      expect(nonEmptyLineCount(null), 0);
       expect(nonEmptyLineCount(''), 0);
       expect(nonEmptyLineCount('\n'), 0);
       expect(nonEmptyLineCount('\n\n'), 0);
@@ -184,7 +165,6 @@ void processing_function_tests() {
     });
 
     test('emptyLineCount works', () {
-      expect(emptyLineCount(null), 0);
       expect(emptyLineCount(''), 0);
       expect(emptyLineCount('\n'), 1);
       expect(emptyLineCount('\n\n'), 2);
@@ -194,7 +174,6 @@ void processing_function_tests() {
     });
 
     test('lineCount works', () {
-      expect(lineCount(null), 0);
       expect(lineCount(''), 0);
       expect(lineCount('\n'), 1);
       expect(lineCount('\n\n'), 2);
@@ -204,7 +183,6 @@ void processing_function_tests() {
     });
 
     test('linesAllSpaces', () {
-      expect(linesAllSpaces(null).isEmpty, isTrue);
       expect(linesAllSpaces('').isEmpty, isTrue);
       expect(linesAllSpaces('    ').contains(0), isTrue);
 
@@ -218,7 +196,6 @@ void processing_function_tests() {
     });
 
     test('allCharFrequency', () {
-      expect(allCharFrequency(null).isEmpty, isTrue);
       expect(allCharFrequency('').isEmpty, isTrue);
 
       expect(allCharFrequency('aabbcc')['a'], 2);
