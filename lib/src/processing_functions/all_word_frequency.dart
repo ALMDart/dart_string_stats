@@ -1,4 +1,4 @@
-import 'package:string_stats/src/utils.dart';
+import 'package:string_stats/src/utility_extensions.dart';
 
 // TODO Add support for punctuation and new lines
 
@@ -14,7 +14,7 @@ Map<String, int> allWordFrequency(String str, { String leftOvers = '', bool cont
   var sb = StringBuffer();
   sb.write(leftOvers);
   for(final ch in str.split('')) {
-    if(isWhiteSpace(ch)) {
+    if(ch.isWhiteSpace()) {
       if(sb.isNotEmpty) {
         out.update(sb.toString(), (v) => v + 1, ifAbsent: () => 1);
       }

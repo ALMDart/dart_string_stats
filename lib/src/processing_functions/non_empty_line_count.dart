@@ -1,4 +1,4 @@
-import 'package:string_stats/src/utils.dart';
+import 'package:string_stats/src/utility_functions.dart';
 
 int nonEmptyLineCount(String str) {
   var _nonEmptyLineCount = 0;

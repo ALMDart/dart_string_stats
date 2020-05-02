@@ -1,4 +1,4 @@
-import 'package:string_stats/src/utils.dart';
+import 'package:string_stats/src/utility_extensions.dart';
 
 Set<int> linesAllSpaces(String str) {
   final out = <int>{};
@@ -9,7 +9,7 @@ Set<int> linesAllSpaces(String str) {
       out.add(line);
       line++;
       allSpaces = true;
-    } else if(!isWhiteSpace(ch)) {
+    } else if(!ch.isWhiteSpace()) {
       allSpaces = false;
     }
   }

@@ -1,4 +1,5 @@
-import 'package:string_stats/src/utils.dart';
+import 'package:string_stats/src/utility_functions.dart';
+import 'package:string_stats/src/utility_extensions.dart';
 import 'package:string_stats/string_stats.dart';
 
 void main() {
@@ -7,4 +8,6 @@ void main() {
   print(str);
   print(str.runes.length);
   print(charCount(str));
+
+  print('1awd'[0].isNumeric());
 }

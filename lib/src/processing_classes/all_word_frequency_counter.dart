@@ -1,5 +1,5 @@
 import 'package:string_stats/src/processing_functions.dart';
-import 'package:string_stats/src/utils.dart';
+import 'package:string_stats/src/utility_extensions.dart';
 
 class AllWordFrequencyCounter {
   final Map<String, int> _counts = <String, int>{};
@@ -25,7 +25,7 @@ class AllWordFrequencyCounter {
     }
 
     for(var i = str.length - 1; i >= 0; i--) {
-      if(isWhiteSpace(str[i])) {
+      if(str[i].isWhiteSpace()) {
         if(i == str.length - 1) {
           _buffer = StringBuffer();
         } else {

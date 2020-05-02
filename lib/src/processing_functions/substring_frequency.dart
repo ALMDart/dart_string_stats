@@ -1,4 +1,4 @@
-import 'package:string_stats/src/utils.dart';
+import 'package:string_stats/src/utility_functions.dart';
 
 int subStringFrequency(String str, String substr, {int lastPos = 0}) {
   var _substrFrequency = 0;

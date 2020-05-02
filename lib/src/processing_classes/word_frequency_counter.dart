@@ -1,6 +1,6 @@
 
 import 'package:string_stats/src/processing_functions.dart';
-import 'package:string_stats/src/utils.dart';
+import 'package:string_stats/src/utility_extensions.dart';
 
 class WordFrequencyCounter {
   int _count = 0;
@@ -31,10 +31,10 @@ class WordFrequencyCounter {
       inWord = false;
       for (j = 0; j + i < str.length && j < _word.length; j++) {
         // If first character in string is a space, skip
-        if (i == 0 && isWhiteSpace(str[i])) break;
+        if (i == 0 && str[i].isWhiteSpace()) break;
 
         // If first letter in match and last letter was not a space, skip
-        if (j == 0 && i > 0 && !isWhiteSpace(str[i - 1])) break;
+        if (j == 0 && i > 0 && !str[i - 1].isWhiteSpace()) break;
 
         // If the letters dont match in order, break
         if (_word.codeUnitAt(j) != str.codeUnitAt(j + i)) {

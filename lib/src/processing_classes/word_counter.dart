@@ -1,14 +1,17 @@
 import 'package:string_stats/src/processing_functions.dart';
-import 'package:string_stats/src/utils.dart';
+import 'package:string_stats/src/utility_extensions.dart';
 
 class WordCounter {
   int _count = 0;
   bool _inWord = false;
   int get count => _count;
 
-  WordCounter();
+  final _ignorePunctuation;
+  WordCounter({bool ignorePunctuation = false})
+      : _ignorePunctuation = ignorePunctuation;
 
-  WordCounter.fromString(String str) {
+  WordCounter.fromString(String str, {bool ignorePunctuation = false})
+      : _ignorePunctuation = ignorePunctuation {
     add(str);
   }
 
@@ -20,8 +23,9 @@ class WordCounter {
 
     _count += wordCount(str, inWord: _inWord);
 
-    final lastChar = str.runes.last;
-    if (isCharNotSpace(lastChar)) {
+    final lastChar = str[str.length - 1];
+    var punctuationContinue = !_ignorePunctuation && !lastChar.isPunctuation();
+    if (lastChar.isChar() && !lastChar.isWhiteSpace() && punctuationContinue) {
       _inWord = true;
     }
     return _count;

@@ -29,7 +29,11 @@ void processing_function_tests() {
       expect(wordCount('\n'), 0);
       expect(wordCount('\n\r'), 0);
 
-      expect(wordCount('\n\r% s @ # (a\\|'), 5);
+      expect(wordCount('\n\r% s @ # (a\\|'), 2);
+
+      expect(wordCount('12345'), 1);
+
+      expect(wordCount('word!word'), 2);
     });
 
     test('charFrequency works', () {

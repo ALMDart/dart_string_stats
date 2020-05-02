@@ -1,5 +1,5 @@
 import 'package:string_stats/src/position.dart';
-import 'package:string_stats/src/utils.dart';
+import 'package:string_stats/src/utility_extensions.dart';
 
 /// Determines all of the [Position]s of a word in parameter string str
 Set<Position> allPositionsWord(String str, String word) {
@@ -9,7 +9,7 @@ Set<Position> allPositionsWord(String str, String word) {
   var start = 0;
   for(var i = 0; i < chars.length; i++) {
     final ch = chars[i];
-    if(isWhiteSpace(ch)) {
+    if(ch.isWhiteSpace()) {
       if(sb.isNotEmpty) {
         final sbString = sb.toString();
         if(sbString == word) {

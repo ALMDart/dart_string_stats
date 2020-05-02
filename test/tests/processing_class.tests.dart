@@ -17,9 +17,9 @@ void processing_class_tests() {
       expect(wordCountSum.add('\n'), 4);
       expect(wordCountSum.add('\n\r'), 4);
 
-      expect(wordCountSum.add('\n\r% s @ # (a\\|'), 9);
+      expect(wordCountSum.add('\n\r% s @ # (a\\|'), 6);
       // word continues on
-      expect(wordCountSum.add('12345'), 9);
+      expect(wordCountSum.add('12345'), 7);
     });
 
     test('CharCounter works', () {

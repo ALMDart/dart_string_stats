@@ -1,5 +1,5 @@
 import 'package:string_stats/src/position.dart';
-import 'package:string_stats/src/utils.dart';
+import 'package:string_stats/src/utility_extensions.dart';
 
 Map<String, Set<Position>> allWordsPositions(String str) {
   final out = <String, Set<Position>>{};
@@ -8,7 +8,7 @@ Map<String, Set<Position>> allWordsPositions(String str) {
   var start = 0;
   for(var i = 0; i < chars.length; i++) {
     final ch = chars[i];
-    if(isWhiteSpace(ch)) {
+    if(ch.isWhiteSpace()) {
       if(sb.isNotEmpty) {
         final sbString = sb.toString();
         out.update(sbString, (set) {
