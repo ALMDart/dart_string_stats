@@ -120,7 +120,7 @@ void processing_function_tests() {
 
       expect(wordFrequency('333  sef sf 3fsf 333', '333'), 2);
 
-      expect(wordFrequency('%@% %@% 5552', '%@%'), 2);
+      expect(wordFrequency('%@% %@% 5552', '%@%'), 1);
     });
 
     test('subStringFrequency works', () {

@@ -1,4 +1,3 @@
-
 import 'package:string_stats/src/processing_functions.dart';
 import 'package:string_stats/src/utility_extensions.dart';
 
@@ -7,11 +6,17 @@ class WordFrequencyCounter {
 
   int get count => _count;
   int _lastPos = 0;
-
   final String _word;
-  WordFrequencyCounter(String word) : _word = word;
+  final _ignorePunctuation;
 
-  WordFrequencyCounter.fromString(String str, String word) : _word = word {
+  WordFrequencyCounter(String word, {bool ignorePunctuation = false})
+      : _ignorePunctuation = ignorePunctuation,
+        _word = word;
+
+  WordFrequencyCounter.fromString(String str, String word,
+      {bool ignorePunctuation = false})
+      : _ignorePunctuation = ignorePunctuation,
+        _word = word {
     add(str);
   }
 
@@ -31,10 +36,15 @@ class WordFrequencyCounter {
       inWord = false;
       for (j = 0; j + i < str.length && j < _word.length; j++) {
         // If first character in string is a space, skip
-        if (i == 0 && str[i].isWhiteSpace()) break;
+        var punctuationContinue = !_ignorePunctuation && str[i].isPunctuation();
+        if (i == 0 && (str[i].isWhiteSpace() || punctuationContinue)) break;
 
-        // If first letter in match and last letter was not a space, skip
-        if (j == 0 && i > 0 && !str[i - 1].isWhiteSpace()) break;
+        // If first letter in match and last letter was not a space or punctuation, skip
+        if (j == 0 &&
+            i > 0 &&
+            !str[i - 1].isWhiteSpace() &&
+            (!_ignorePunctuation && !str[i - 1].isPunctuation())) break;
+
 
         // If the letters dont match in order, break
         if (_word.codeUnitAt(j) != str.codeUnitAt(j + i)) {
@@ -44,7 +54,7 @@ class WordFrequencyCounter {
       }
       i += j;
     }
-    if(inWord) {
+    if (inWord) {
       _lastPos = j;
     } else {
       _lastPos = 0;

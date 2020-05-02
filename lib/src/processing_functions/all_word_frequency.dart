@@ -9,13 +9,16 @@ import 'package:string_stats/src/utility_extensions.dart';
 /// leftOvers and continues allows for incremental counting over a string
 /// over multiple calls. leftOvers is what remained of a word from a previous
 /// string
-Map<String, int> allWordFrequency(String str, { String leftOvers = '', bool continues = false}) {
+Map<String, int> allWordFrequency(String str,
+    {String leftOvers = '',
+    bool continues = false,
+    bool ignorePunctuation = false}) {
   final out = <String, int>{};
   var sb = StringBuffer();
   sb.write(leftOvers);
-  for(final ch in str.split('')) {
-    if(ch.isWhiteSpace()) {
-      if(sb.isNotEmpty) {
+  for (final ch in str.split('')) {
+    if (ch.isWhiteSpace() || (!ignorePunctuation && ch.isPunctuation())) {
+      if (sb.isNotEmpty) {
         out.update(sb.toString(), (v) => v + 1, ifAbsent: () => 1);
       }
       sb = StringBuffer();
@@ -23,7 +26,7 @@ Map<String, int> allWordFrequency(String str, { String leftOvers = '', bool cont
       sb.write(ch);
     }
   }
-  if(!continues && sb.isNotEmpty) {
+  if (!continues && sb.isNotEmpty) {
     out.update(sb.toString(), (v) => v + 1, ifAbsent: () => 1);
   }
   return out;
