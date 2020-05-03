@@ -5,8 +5,6 @@ void processing_class_tests() {
   group('processing_function_tests', () {
     test('WordCounter works', () {
       var wordCountSum = WordCounter();
-      expect(wordCountSum.add(null), 0);
-
       expect(wordCountSum.add(' 12345 '), 1);
       expect(wordCountSum.add('12 345\n 6'), 4);
 
@@ -48,7 +46,6 @@ void processing_class_tests() {
     test('WordFrequencyCounter works', () {
       var counter = WordFrequencyCounter('word');
 
-      expect(counter.add(null), 0);
       expect(counter.add('word'), 1);
       expect(counter.add(' word word word '), 4);
 
@@ -71,7 +68,6 @@ void processing_class_tests() {
     test('SubStringFrequencyCounter works', () {
       var counter = SubStringFrequencyCounter('word');
 
-      expect(counter.add(null), 0);
       expect(counter.add('word'), 1);
       expect(counter.add(' word word word '), 4);
 
@@ -107,9 +103,7 @@ void processing_class_tests() {
     test('AllWordFrequencyCounter works', () {
       var counter = AllWordFrequencyCounter();
 
-      expect(counter.add(null).isEmpty, isTrue);
       expect(counter.add('').isEmpty, isTrue);
-
       expect(counter.add('word ').length, 1);
 
       expect(counter.add('word').length, 1);

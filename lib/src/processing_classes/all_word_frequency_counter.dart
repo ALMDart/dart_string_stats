@@ -4,6 +4,7 @@ import 'package:string_stats/src/utility_extensions.dart';
 /// Facilitates performing all_word_frequency on a stream of strings.
 class AllWordFrequencyCounter {
   final Map<String, int> _counts = <String, int>{};
+
   /// Counts of each word encountered thus far.
   Map<String, int> get counts => _counts;
   final StringBuffer _buffer = StringBuffer();
@@ -24,18 +25,10 @@ class AllWordFrequencyCounter {
   /// Add another string to be processed, returns the counts collection.
   /// end indicates final word to flush buffers and finalize count.
   Map<String, int> add(String str, {bool end = false}) {
-    if (str == null || str.isEmpty) {
-      return _counts;
-    }
-    final tmpMap =
-        allWordFrequency(str, leftOvers: _buffer.toString(), continues: !end);
-    for (final key in tmpMap.keys) {
-      if (_counts.containsKey(key)) {
-        _counts.update(key, (val) => val + tmpMap[key]);
-      } else {
-        _counts.putIfAbsent(key, () => tmpMap[key]);
-      }
-    }
+    allWordFrequency(str, leftOvers: _buffer.toString(), continues: !end)
+        .forEach((key, val) {
+      _counts.update(key, (val1) => val1 + val, ifAbsent: () => val);
+    });
 
     for (var i = str.length - 1; i >= 0; i--) {
       if (str[i].isWhiteSpace ||

@@ -23,7 +23,7 @@ class WordCounter {
 
   /// Add another string to be processed, returns the counts.
   int add(String str) {
-    if (str == null || str.isEmpty) {
+    if (str.isEmpty) {
       _inWord = false;
       return _count;
     }

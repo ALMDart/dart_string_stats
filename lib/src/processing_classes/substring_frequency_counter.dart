@@ -21,11 +21,6 @@ class SubStringFrequencyCounter {
 
   /// Add another string to be processed, returns the counts.
   int add(String str) {
-    if (str == null || str.isEmpty) {
-      _lastPos = 0;
-      return _count;
-    }
-
     _count += subStringFrequency(str, _substring, lastPos: _lastPos);
 
     var start = str.length - _substring.length;

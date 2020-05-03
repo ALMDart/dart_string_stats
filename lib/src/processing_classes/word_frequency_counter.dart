@@ -29,7 +29,7 @@ class WordFrequencyCounter {
 
   /// Add another string to be processed, returns the counts.
   int add(String str) {
-    if (str == null || str.isEmpty) {
+    if (str.isEmpty) {
       _lastPos = 0;
       return _count;
     }
@@ -55,7 +55,7 @@ class WordFrequencyCounter {
 
 
         // If the letters dont match in order, break
-        if (_word.codeUnitAt(j) != str.codeUnitAt(j + i)) {
+        if (_word[j] != str[j + i]) {
           break;
         }
         inWord = true;
