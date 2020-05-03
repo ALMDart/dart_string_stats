@@ -15,8 +15,8 @@ class AllCharFrequencyCounter {
   }
 
   /// Add another string to be processed, returns the counts collection.
-  Map<String, int> add(String str) {
-    allCharFrequency(str).forEach((key, val) {
+  Map<String, int> add(String str, {bool filterNonChars = true}) {
+    allCharFrequency(str, filterNonChars: filterNonChars).forEach((key, val) {
       _counts.update(key, (val1) => val1 + val, ifAbsent: () => val);
     });
     return _counts;

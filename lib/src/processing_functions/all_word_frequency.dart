@@ -1,7 +1,5 @@
 import 'package:string_stats/src/utility_extensions.dart';
 
-// TODO Add support for punctuation and new lines
-
 /// Returns the frequency of all words in a given string str.
 ///
 /// The default behavior of the function is to count the last substring beginning
