@@ -9,7 +9,7 @@ Set<int> linesAllSpaces(String str) {
       out.add(line);
       line++;
       allSpaces = true;
-    } else if(!ch.isWhiteSpace()) {
+    } else if(!ch.isWhiteSpace) {
       allSpaces = false;
     }
   }

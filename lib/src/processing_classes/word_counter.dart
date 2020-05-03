@@ -24,8 +24,8 @@ class WordCounter {
     _count += wordCount(str, inWord: _inWord);
 
     final lastChar = str[str.length - 1];
-    var punctuationContinue = !_ignorePunctuation && !lastChar.isPunctuation();
-    if (lastChar.isChar() && !lastChar.isWhiteSpace() && punctuationContinue) {
+    var punctuationContinue = !_ignorePunctuation && !lastChar.isPunctuation;
+    if (lastChar.isChar && !lastChar.isWhiteSpace && punctuationContinue) {
       _inWord = true;
     }
     return _count;

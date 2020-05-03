@@ -1,14 +1,15 @@
 import 'package:string_stats/src/position.dart';
 import 'package:string_stats/src/utility_extensions.dart';
 
-Map<String, Set<Position>> allWordsPositions(String str) {
+/// Returns the [Position]s of every word in the string.
+Map<String, Set<Position>> allWordsPositions(String str, {bool ignorePunctuation = false}) {
   final out = <String, Set<Position>>{};
-  var sb = StringBuffer();
+  final sb = StringBuffer();
   final chars = str.split('');
   var start = 0;
   for(var i = 0; i < chars.length; i++) {
     final ch = chars[i];
-    if(ch.isWhiteSpace()) {
+    if(ch.isWhiteSpace || (!ignorePunctuation && ch.isPunctuation)) {
       if(sb.isNotEmpty) {
         final sbString = sb.toString();
         out.update(sbString, (set) {
@@ -17,7 +18,7 @@ Map<String, Set<Position>> allWordsPositions(String str) {
         }, ifAbsent: () => {Position(start, i - 1)});
       }
       start = i + 1;
-      sb = StringBuffer();
+      sb.clear();
     } else {
       sb.write(ch);
     }

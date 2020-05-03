@@ -1,13 +1,13 @@
 import 'package:string_stats/src/position.dart';
 import 'package:string_stats/src/utility_extensions.dart';
 
-Position firstPositionWord(String str, String word) {
-  var sb = StringBuffer();
+Position firstPositionWord(String str, String word, {bool ignorePunctuation = false}) {
+  final sb = StringBuffer();
   final chars = str.split('');
   var start = 0;
   for(var i = 0; i < chars.length; i++) {
     final ch = chars[i];
-    if(ch.isWhiteSpace()) {
+    if(ch.isWhiteSpace  || (!ignorePunctuation && ch.isPunctuation)) {
       if(sb.isNotEmpty) {
         final sbString = sb.toString();
         if(sbString == word) {
@@ -15,7 +15,7 @@ Position firstPositionWord(String str, String word) {
         }
       }
       start = i + 1;
-      sb = StringBuffer();
+      sb.clear();
     } else {
       sb.write(ch);
     }

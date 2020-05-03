@@ -4,7 +4,7 @@ import 'package:string_stats/src/utility_extensions.dart';
 class AllWordFrequencyCounter {
   final Map<String, int> _counts = <String, int>{};
   Map<String, int> get counts => _counts;
-  StringBuffer _buffer = StringBuffer();
+  final StringBuffer _buffer = StringBuffer();
   final _ignorePunctuation;
 
   AllWordFrequencyCounter({bool ignorePunctuation = false})
@@ -31,10 +31,10 @@ class AllWordFrequencyCounter {
     }
 
     for (var i = str.length - 1; i >= 0; i--) {
-      if (str[i].isWhiteSpace() ||
-          (!_ignorePunctuation && str[i].isPunctuation())) {
+      if (str[i].isWhiteSpace ||
+          (!_ignorePunctuation && str[i].isPunctuation)) {
         if (i == str.length - 1) {
-          _buffer = StringBuffer();
+          _buffer.clear();
         } else {
           _buffer.write(str.substring(i + 1));
         }

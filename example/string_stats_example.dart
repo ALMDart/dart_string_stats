@@ -9,5 +9,5 @@ void main() {
   print(str.runes.length);
   print(charCount(str));
 
-  print('1awd'[0].isNumeric());
+  print('1awd'[0].isNumeric);
 }

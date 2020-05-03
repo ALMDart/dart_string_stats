@@ -36,14 +36,14 @@ class WordFrequencyCounter {
       inWord = false;
       for (j = 0; j + i < str.length && j < _word.length; j++) {
         // If first character in string is a space, skip
-        var punctuationContinue = !_ignorePunctuation && str[i].isPunctuation();
-        if (i == 0 && (str[i].isWhiteSpace() || punctuationContinue)) break;
+        var punctuationContinue = !_ignorePunctuation && str[i].isPunctuation;
+        if (i == 0 && (str[i].isWhiteSpace || punctuationContinue)) break;
 
         // If first letter in match and last letter was not a space or punctuation, skip
         if (j == 0 &&
             i > 0 &&
-            !str[i - 1].isWhiteSpace() &&
-            (!_ignorePunctuation && !str[i - 1].isPunctuation())) break;
+            !str[i - 1].isWhiteSpace &&
+            (!_ignorePunctuation && !str[i - 1].isPunctuation)) break;
 
 
         // If the letters dont match in order, break
