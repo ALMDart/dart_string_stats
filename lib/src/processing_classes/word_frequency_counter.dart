@@ -1,18 +1,25 @@
 import 'package:string_stats/src/processing_functions.dart';
 import 'package:string_stats/src/utility_extensions.dart';
 
+/// Facilitates performing word_frequency on a stream of strings.
 class WordFrequencyCounter {
   int _count = 0;
 
+  /// Count of word encountered thus far.
   int get count => _count;
   int _lastPos = 0;
   final String _word;
   final _ignorePunctuation;
 
+  /// word is the word to count
+  /// ignorePunctuation facilitates checking words that include symbols.
   WordFrequencyCounter(String word, {bool ignorePunctuation = false})
       : _ignorePunctuation = ignorePunctuation,
         _word = word;
 
+  /// Creates a counter and adds parameter string.
+  /// word is the word to count
+  /// ignorePunctuation facilitates checking words that include symbols.
   WordFrequencyCounter.fromString(String str, String word,
       {bool ignorePunctuation = false})
       : _ignorePunctuation = ignorePunctuation,
@@ -20,6 +27,7 @@ class WordFrequencyCounter {
     add(str);
   }
 
+  /// Add another string to be processed, returns the counts.
   int add(String str) {
     if (str == null || str.isEmpty) {
       _lastPos = 0;
