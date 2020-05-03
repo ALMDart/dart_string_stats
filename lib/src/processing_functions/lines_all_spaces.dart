@@ -1,5 +1,6 @@
 import 'package:string_stats/src/utility_extensions.dart';
 
+/// Finds all of the lines that are comprised of only spaces.
 Set<int> linesAllSpaces(String str) {
   final out = <int>{};
   var line = 0;

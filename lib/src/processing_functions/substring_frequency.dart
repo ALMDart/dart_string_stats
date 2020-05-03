@@ -1,5 +1,8 @@
-import 'package:string_stats/src/utility_functions.dart';
 
+/// Finds the number of times substr is present within str.
+///
+/// lastPos allows for incremental counting of a string over multiple calls
+/// by passing what remained of a word from a previous string.
 int subStringFrequency(String str, String substr, {int lastPos = 0}) {
   var _substrFrequency = 0;
 

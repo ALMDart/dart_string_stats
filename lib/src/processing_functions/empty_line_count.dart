@@ -1,3 +1,4 @@
+/// Counts the number of empty lines in str.
 int emptyLineCount(String str) {
   var _emptyLineCount = 0;
   for (var i = 0; i < str.length; i++) {

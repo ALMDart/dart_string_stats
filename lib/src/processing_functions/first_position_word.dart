@@ -1,6 +1,9 @@
 import 'package:string_stats/src/position.dart';
 import 'package:string_stats/src/utility_extensions.dart';
 
+/// Returns the first [Position] of word in the str.
+///
+/// ignorePunctuation facilitates checking words that include symbols.
 Position firstPositionWord(String str, String word, {bool ignorePunctuation = false}) {
   final sb = StringBuffer();
   final chars = str.split('');

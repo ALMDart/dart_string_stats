@@ -1,3 +1,4 @@
+/// Determines the frequency of char in str.
 int charFrequency(String str, String char) {
   if(char.length != 1) return 0;
   final charCode = char.codeUnitAt(0);

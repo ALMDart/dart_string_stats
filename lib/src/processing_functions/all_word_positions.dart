@@ -2,6 +2,8 @@ import 'package:string_stats/src/position.dart';
 import 'package:string_stats/src/utility_extensions.dart';
 
 /// Returns the [Position]s of every word in the string.
+///
+/// ignorePunctuation facilitates checking words that include symbols.
 Map<String, Set<Position>> allWordsPositions(String str, {bool ignorePunctuation = false}) {
   final out = <String, Set<Position>>{};
   final sb = StringBuffer();

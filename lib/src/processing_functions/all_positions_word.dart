@@ -1,7 +1,7 @@
 import 'package:string_stats/src/position.dart';
 import 'package:string_stats/src/utility_extensions.dart';
 
-/// Determines all of the [Position]s of a specified word in parameter string str
+/// Determines all of the [Position]s of a specified word in parameter string str.
 Set<Position> allPositionsWord(String str, String word, {bool ignorePunctuation = false}) {
   final out = <Position>{};
   final sb = StringBuffer();
