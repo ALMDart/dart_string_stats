@@ -1,7 +1,5 @@
 import 'package:string_stats/src/processing_functions.dart';
-import 'package:string_stats/src/processing_classes.dart';
 import 'package:string_stats/src/processing_functions/statistics.dart';
-import 'package:string_stats/src/string_statistics.dart';
 import 'package:test/test.dart';
 
 void processing_function_tests() {
@@ -28,7 +26,6 @@ void processing_function_tests() {
       expect(wordPos.length, 4);
       expect(wordPos['word'].first.start, 1);
       expect(wordPos['duck'].first.start, 6);
-
     });
 
     test('charCount works', () {
