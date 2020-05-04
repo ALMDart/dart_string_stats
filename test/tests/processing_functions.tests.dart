@@ -1,9 +1,36 @@
 import 'package:string_stats/src/processing_functions.dart';
 import 'package:string_stats/src/processing_classes.dart';
+import 'package:string_stats/src/processing_functions/statistics.dart';
+import 'package:string_stats/src/string_statistics.dart';
 import 'package:test/test.dart';
 
 void processing_function_tests() {
   group('processing_function_tests', () {
+    test('charCount works', () {
+      var stats = statistics('\nword duck pond \n\n   \n martian');
+
+      expect(stats.charCount, 26);
+      expect(stats.emptyLineCount, 2);
+      expect(stats.lineCount, 5);
+      expect(stats.nonEmptyLineCount, 3);
+      expect(stats.wordCount, 4);
+
+      final charFreqs = stats.charFrequencies;
+      expect(charFreqs.length, 14);
+      expect(charFreqs['w'], 1);
+      expect(charFreqs['o'], 2);
+
+      final wordFreqs = stats.wordFrequencies;
+      expect(wordFreqs.length, 4);
+      expect(wordFreqs['word'], 1);
+
+      final wordPos = stats.wordPositions;
+      expect(wordPos.length, 4);
+      expect(wordPos['word'].first.start, 1);
+      expect(wordPos['duck'].first.start, 6);
+
+    });
+
     test('charCount works', () {
       expect(charCount('12345'), 5);
       expect(charCount('12345\n 6'), 7);
@@ -44,8 +71,11 @@ void processing_function_tests() {
 
       expect(charFrequency('aabaa aaa', 'a'), 7);
       expect(charFrequency('aaba\na a\taa', 'a'), 7);
-      expect(charFrequency('\t\t', '\t'), 2);
-      expect(charFrequency('\n\n\n', '\n'), 3);
+      expect(charFrequency('\t\t', '\t'), 0);
+      expect(charFrequency('\t\t', '\t', filterNonChars: false), 2);
+
+      expect(charFrequency('\n\n\n', '\n'), 0);
+      expect(charFrequency('\n\n\n', '\n', filterNonChars: false), 3);
     });
 
     test('allWordFrequency works', () {
@@ -178,25 +208,12 @@ void processing_function_tests() {
     });
 
     test('lineCount works', () {
-      expect(lineCount(''), 0);
-      expect(lineCount('\n'), 1);
-      expect(lineCount('\n\n'), 2);
+      expect(lineCount(''), 1);
+      expect(lineCount('\n'), 2);
+      expect(lineCount('\n\n'), 3);
 
-      expect(lineCount('\nasdsd\n'), 2);
-      expect(lineCount('\nasdsd\n\n'), 3);
-    });
-
-    test('linesAllSpaces', () {
-      expect(linesAllSpaces('').isEmpty, isTrue);
-      expect(linesAllSpaces('    ').contains(0), isTrue);
-
-      expect(linesAllSpaces('    \n ').contains(0), isTrue);
-      expect(linesAllSpaces('    \n ').contains(1), isTrue);
-
-      expect(linesAllSpaces('    \n ').contains(0), isTrue);
-      expect(linesAllSpaces('    \n \n').contains(1), isTrue);
-      expect(linesAllSpaces('    \n \n').contains(2), isTrue);
-      expect(linesAllSpaces('    \n\n \n ').contains(3), isTrue);
+      expect(lineCount('\nasdsd\n'), 3);
+      expect(lineCount('\nasdsd\n\n'), 4);
     });
 
     test('allCharFrequency', () {

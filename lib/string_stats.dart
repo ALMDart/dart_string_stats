@@ -6,3 +6,5 @@ library string_stats;
 export 'src/processing_functions.dart';
 export 'src/processing_classes.dart';
 export 'src/position.dart';
+export 'src/string_statistics.dart';
+export 'src/utility_extensions.dart';

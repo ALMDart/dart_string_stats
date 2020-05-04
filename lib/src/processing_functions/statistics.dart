@@ -15,10 +15,7 @@ StringStatistics statistics(String str,
   final charFrequencies = <String, int>{};
   final wordFrequencies = <String, int>{};
   final wordPositions = <String, Set<Position>>{};
-  final linesAllSpaces = <int>{};
 
-  var line = 0;
-  var allSpaces = true;
   var start = 0;
   final sb = StringBuffer();
   final chars = str.split('');
@@ -27,14 +24,6 @@ StringStatistics statistics(String str,
     final ch = chars[i];
     if (ch == '\n') {
       lineCount++;
-
-      if (allSpaces) {
-        linesAllSpaces.add(line);
-        line++;
-        allSpaces = true;
-      } else if (!ch.isWhiteSpace) {
-        allSpaces = false;
-      }
 
       if (i == 0) {
         emptyLineCount++;
@@ -78,10 +67,6 @@ StringStatistics statistics(String str,
     }
   }
 
-  if (allSpaces && !linesAllSpaces.contains(line) && str.isNotEmpty) {
-    linesAllSpaces.add(line);
-  }
-
   if (!continues && sb.isNotEmpty) {
     final sbString = sb.toString();
     wordFrequencies.update(sb.toString(), (v) => v + 1, ifAbsent: () => 1);
@@ -96,12 +81,11 @@ StringStatistics statistics(String str,
   return StringStatistics(
       charCount,
       wordCount,
-      lineCount,
+      lineCount + 1,
       emptyLineCount,
-      nonEmptyLineCount,
+      nonEmptyLineCount + 1,
       charFrequencies,
       wordFrequencies,
-      wordPositions,
-      linesAllSpaces
+      wordPositions
   );
 }

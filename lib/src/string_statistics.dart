@@ -2,14 +2,13 @@ import 'package:string_stats/src/position.dart';
 
 class StringStatistics {
   final int charCount;
-  final int emptyLineCount;
-  final int lineCount;
-  final int nonEmptyLineCount;
   final int wordCount;
+  final int lineCount;
+  final int emptyLineCount;
+  final int nonEmptyLineCount;
   final Map<String, int> charFrequencies;
   final Map<String, int> wordFrequencies;
   final Map<String, Set<Position>> wordPositions;
-  final Set<int> linesAllSpaces;
 
   const StringStatistics(
       this.charCount,
@@ -19,8 +18,7 @@ class StringStatistics {
       this.nonEmptyLineCount,
       this.charFrequencies,
       this.wordFrequencies,
-      this.wordPositions,
-      this.linesAllSpaces);
+      this.wordPositions);
 
   StringStatistics combine(StringStatistics stats) {
     final newCharFrequencies = <String, int>{};
@@ -51,8 +49,7 @@ class StringStatistics {
       nonEmptyLineCount + stats.nonEmptyLineCount,
       newCharFrequencies,
       newWordFrequencies,
-      newWordPositions,
-      linesAllSpaces.union(stats.linesAllSpaces)
+      newWordPositions
     );
   }
 }
