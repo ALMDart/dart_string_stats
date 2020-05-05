@@ -2,7 +2,7 @@
 
 ## API In Fluid State
 
-Library is still in 0.0.# semver and any opinions on how the final API should work is appreciated.
+Library is still in 0.0.* semver and any opinions on how the final API should work is appreciated.
 Particularly looking for help to strictly define what each of the utilities should do.
 
 ### Description
