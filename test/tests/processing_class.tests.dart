@@ -4,21 +4,29 @@ import 'package:test/test.dart';
 
 void processing_class_tests() {
   group('processing_function_tests', () {
-    test('WordCounter works', () {
-      var wordCountSum = WordCounter();
-      expect(wordCountSum.add(' 12345 '), 1);
-      expect(wordCountSum.add('12 345\n 6'), 4);
+    test('AllCharFrequencyCounter works', () {
+      var counter = AllCharFrequencyCounter();
 
-      expect(wordCountSum.add(''), 4);
-      expect(wordCountSum.add(' '), 4);
-      expect(wordCountSum.add('\t'), 4);
-      expect(wordCountSum.add('\r'), 4);
-      expect(wordCountSum.add('\n'), 4);
-      expect(wordCountSum.add('\n\r'), 4);
+      expect(counter.add('').isEmpty, isTrue);
 
-      expect(wordCountSum.add('\n\r% s @ # (a\\|'), 6);
-      // word continues on
-      expect(wordCountSum.add('12345'), 7);
+      expect(counter.add('aabbcc').length, 3);
+      expect(counter.add('aabbcc')['a'], 4);
+      expect(counter.add('aabbcc')['b'], 6);
+      expect(counter.add('aabbcc')['c'], 8);
+      expect(counter.add('aabbcc')['d'], isNull);
+    });
+
+    test('AllWordFrequencyCounter works', () {
+      var counter = AllWordFrequencyCounter();
+
+      expect(counter.add('').isEmpty, isTrue);
+      expect(counter.add('word ').length, 1);
+
+      expect(counter.add('word').length, 1);
+      expect(counter.add(' ')['word'], 2);
+      expect(counter.add('w')['word'], 2);
+      expect(counter.add('or')['word'], 2);
+      expect(counter.add('d', end: true)['word'], 3);
     });
 
     test('CharCounter works', () {
@@ -74,28 +82,6 @@ void processing_class_tests() {
       expect(stats.wordFrequencies['martian'], 2);
     });
 
-    test('WordFrequencyCounter works', () {
-      var counter = WordFrequencyCounter('word');
-
-      expect(counter.add('word'), 1);
-      expect(counter.add(' word word word '), 4);
-
-      expect(counter.add(' word word wo'), 6);
-      expect(counter.add('rd'), 7);
-
-      expect(counter.add('wordwo'), 7);
-      expect(counter.add('rd '), 7);
-
-      expect(counter.add('wor'), 7);
-      expect(counter.add('d wor word d'), 9);
-
-      expect(counter.add('  wor'), 9);
-      expect(counter.add('d  wor'), 10);
-      expect(counter.add('d  w'), 11);
-      expect(counter.add('ord  wor'), 12);
-      expect(counter.add('da  wor'), 12);
-    });
-
     test('SubStringFrequencyCounter works', () {
       var counter = SubStringFrequencyCounter('word');
 
@@ -119,29 +105,43 @@ void processing_class_tests() {
       expect(counter.add('da word  wor'), 17);
     });
 
-    test('AllCharFrequencyCounter works', () {
-      var counter = AllCharFrequencyCounter();
+    test('WordCounter works', () {
+      var wordCountSum = WordCounter();
+      expect(wordCountSum.add(' 12345 '), 1);
+      expect(wordCountSum.add('12 345\n 6'), 4);
 
-      expect(counter.add('').isEmpty, isTrue);
+      expect(wordCountSum.add(''), 4);
+      expect(wordCountSum.add(' '), 4);
+      expect(wordCountSum.add('\t'), 4);
+      expect(wordCountSum.add('\r'), 4);
+      expect(wordCountSum.add('\n'), 4);
+      expect(wordCountSum.add('\n\r'), 4);
 
-      expect(counter.add('aabbcc').length, 3);
-      expect(counter.add('aabbcc')['a'], 4);
-      expect(counter.add('aabbcc')['b'], 6);
-      expect(counter.add('aabbcc')['c'], 8);
-      expect(counter.add('aabbcc')['d'], isNull);
+      expect(wordCountSum.add('\n\r% s @ # (a\\|'), 6);
+      // word continues on
+      expect(wordCountSum.add('12345'), 7);
     });
 
-    test('AllWordFrequencyCounter works', () {
-      var counter = AllWordFrequencyCounter();
+    test('WordFrequencyCounter works', () {
+      var counter = WordFrequencyCounter('word');
 
-      expect(counter.add('').isEmpty, isTrue);
-      expect(counter.add('word ').length, 1);
+      expect(counter.add('word'), 1);
+      expect(counter.add(' word word word '), 4);
 
-      expect(counter.add('word').length, 1);
-      expect(counter.add(' ')['word'], 2);
-      expect(counter.add('w')['word'], 2);
-      expect(counter.add('or')['word'], 2);
-      expect(counter.add('d', end: true)['word'], 3);
+      expect(counter.add(' word word wo'), 6);
+      expect(counter.add('rd'), 7);
+
+      expect(counter.add('wordwo'), 7);
+      expect(counter.add('rd '), 7);
+
+      expect(counter.add('wor'), 7);
+      expect(counter.add('d wor word d'), 9);
+
+      expect(counter.add('  wor'), 9);
+      expect(counter.add('d  wor'), 10);
+      expect(counter.add('d  w'), 11);
+      expect(counter.add('ord  wor'), 12);
+      expect(counter.add('da  wor'), 12);
     });
   });
 }

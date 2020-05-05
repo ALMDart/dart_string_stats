@@ -6,7 +6,6 @@ extension StringTests on String {
     return Iterable<String>.generate(filtered.length, (index) {
       return String.fromCharCode(filtered[index]);
     });
-
   }
 
   bool get isNumeric => runes.every(utils.isNumeric);
@@ -18,11 +17,4 @@ extension StringTests on String {
   bool get isWhiteSpace => runes.every(utils.isWhiteSpace);
 
   String generateUnicodeString(int length) => utils.generateUnicodeString(length);
-}
-
-extension IndexedForEach<T> on List<T> {
-  void forEachIndexed(void Function(T, int) f) {
-    var count = 0;
-    forEach((e) => f(e, count++));
-  }
 }
