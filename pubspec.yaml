@@ -1,6 +1,6 @@
 name: string_stats
 description: string_stats provides utility functions and classes for determining basic frequency statistics on strings. Provides support for asynchronous or incremental accumulation.
-version: 0.0.2
+version: 0.0.2+1
 homepage: https://github.com/ALMaclaine/dart_string_stats
 repository: https://github.com/ALMaclaine/dart_string_stats
 
