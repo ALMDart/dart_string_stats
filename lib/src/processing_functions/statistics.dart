@@ -96,14 +96,6 @@ StringStatistics statistics(String str,
 
   if (!continues && inWord) wordCount++;
 
-  return StringStatistics(
-      charCount,
-      wordCount,
-      lineCount + 1,
-      emptyLineCount,
-      nonEmptyLineCount + 1,
-      charFrequencies,
-      wordFrequencies,
-      wordPositions
-  );
+  return StringStatistics(charCount, wordCount, lineCount + 1, emptyLineCount,
+      nonEmptyLineCount + 1, charFrequencies, wordFrequencies, wordPositions);
 }

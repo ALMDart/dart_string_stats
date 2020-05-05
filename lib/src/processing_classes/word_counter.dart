@@ -5,6 +5,7 @@ import 'package:string_stats/src/utility_extensions.dart';
 class WordCounter {
   bool _inWord = false;
   int _count = 0;
+
   /// Count of words encountered thus far.
   int get count => _count;
 

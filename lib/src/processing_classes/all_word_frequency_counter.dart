@@ -19,15 +19,18 @@ class AllWordFrequencyCounter {
   /// Add another string to be processed, returns the counts collection.
   /// end indicates final word to flush buffers and finalize count.
   /// ignorePunctuation facilitates checking words that include symbols.
-  Map<String, int> add(String str, {bool end = false, bool ignorePunctuation = false}) {
-    allWordFrequency(str, leftOvers: _buffer.toString(), continues: !end, ignorePunctuation: ignorePunctuation)
+  Map<String, int> add(String str,
+      {bool end = false, bool ignorePunctuation = false}) {
+    allWordFrequency(str,
+            leftOvers: _buffer.toString(),
+            continues: !end,
+            ignorePunctuation: ignorePunctuation)
         .forEach((key, val) {
       _counts.update(key, (val1) => val1 + val, ifAbsent: () => val);
     });
 
     for (var i = str.length - 1; i >= 0; i--) {
-      if (str[i].isWhiteSpace ||
-          (!ignorePunctuation && str[i].isPunctuation)) {
+      if (str[i].isWhiteSpace || (!ignorePunctuation && str[i].isPunctuation)) {
         if (i == str.length - 1) {
           _buffer.clear();
         } else {

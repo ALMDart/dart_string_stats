@@ -16,5 +16,6 @@ extension StringTests on String {
 
   bool get isWhiteSpace => runes.every(utils.isWhiteSpace);
 
-  String generateUnicodeString(int length) => utils.generateUnicodeString(length);
+  String generateUnicodeString(int length) =>
+      utils.generateUnicodeString(length);
 }

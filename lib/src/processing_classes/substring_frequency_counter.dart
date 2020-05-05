@@ -15,7 +15,8 @@ class SubStringFrequencyCounter {
 
   /// Creates a counter and adds parameter string.
   /// word is the word to count
-  SubStringFrequencyCounter.fromString(String str, String word) : _substring = word {
+  SubStringFrequencyCounter.fromString(String str, String word)
+      : _substring = word {
     add(str);
   }
 
@@ -41,7 +42,7 @@ class SubStringFrequencyCounter {
       }
       i += j;
     }
-    if(inWord) {
+    if (inWord) {
       _lastPos = j;
     } else {
       _lastPos = 0;

@@ -42,14 +42,13 @@ class StringStatistics {
         .update(val, (old) => set.union(old), ifAbsent: () => Set.from(set)));
 
     return StringStatistics(
-      charCount + stats.charCount,
-      wordCount + stats.wordCount,
-      lineCount + stats.lineCount,
-      emptyLineCount + stats.emptyLineCount,
-      nonEmptyLineCount + stats.nonEmptyLineCount,
-      newCharFrequencies,
-      newWordFrequencies,
-      newWordPositions
-    );
+        charCount + stats.charCount,
+        wordCount + stats.wordCount,
+        lineCount + stats.lineCount,
+        emptyLineCount + stats.emptyLineCount,
+        nonEmptyLineCount + stats.nonEmptyLineCount,
+        newCharFrequencies,
+        newWordFrequencies,
+        newWordPositions);
   }
 }

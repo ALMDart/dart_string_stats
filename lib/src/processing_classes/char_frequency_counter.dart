@@ -4,6 +4,7 @@ import 'package:string_stats/src/processing_functions.dart';
 class CharFrequencyCounter {
   final String _char;
   int _count = 0;
+
   /// Count of character encountered thus far.
   int get count => _count;
 

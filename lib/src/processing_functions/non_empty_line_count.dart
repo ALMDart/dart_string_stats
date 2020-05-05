@@ -1,4 +1,3 @@
-import 'package:string_stats/src/utility_functions.dart';
 import 'package:string_stats/src/utility_extensions.dart';
 
 /// Determines the number of lines that are non-empty.
