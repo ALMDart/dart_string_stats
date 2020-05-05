@@ -1,6 +1,24 @@
 /// Finds the general string statistics for the provided string.
 import 'package:string_stats/string_stats.dart';
 
+/// Finds the data points in StringStatistics for provided string.
+///
+/// Includes: character count, empty line count, line count, non-empty line count,
+/// word count, character frequencies, word frequencies, and word positions.
+///
+/// The default behavior of the function is to count the last substring beginning
+/// with white space as a word even if it ends without a whitespace or punctuation
+/// mark. leftOvers and continues allows for incremental counting of a string
+/// over multiple calls. leftOvers is what remained of a word from a previous
+/// string and continues indicates that the string will continue, preventing the
+/// count of the last whitespace lead substring.
+///
+/// ignorePunctuation facilitates checking words that include symbols.
+///
+/// inWord allows for incremental counting of a string over multiple calls, and
+/// prevents double counting by telling function it's still in a word.
+///
+/// filterNonChars removes non-chars from count.
 StringStatistics statistics(String str,
     {bool filterNonChars = true,
     String leftOvers = '',
@@ -76,7 +94,7 @@ StringStatistics statistics(String str,
     }, ifAbsent: () => {Position(start, str.length - 1)});
   }
 
-  if (inWord) wordCount++;
+  if (!continues && inWord) wordCount++;
 
   return StringStatistics(
       charCount,

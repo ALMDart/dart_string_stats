@@ -4,6 +4,7 @@ import 'package:string_stats/src/utility_extensions.dart';
 ///
 /// inWord allows for incremental counting of a string over multiple calls, and
 /// prevents double counting by telling function it's still in a word.
+///
 /// ignorePunctuation facilitates checking words that include symbols.
 int wordCount(String str, { bool inWord = false, bool ignorePunctuation = false }) {
   var _wordCount = 0;

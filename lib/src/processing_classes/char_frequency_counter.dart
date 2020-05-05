@@ -17,8 +17,9 @@ class CharFrequencyCounter {
   }
 
   /// Add another string to be processed, returns the counts.
-  int add(String str) {
-    _count += charFrequency(str, _char);
+  /// filterNonChars removes non-chars from count.
+  int add(String str, {bool filterNonChars = true}) {
+    _count += charFrequency(str, _char, filterNonChars: filterNonChars);
     return _count;
   }
 }

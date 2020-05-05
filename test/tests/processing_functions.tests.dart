@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 
 void processing_function_tests() {
   group('processing_function_tests', () {
-    test('charCount works', () {
+    test('statistics works', () {
       var stats = statistics('\nword duck pond \n\n   \n martian');
 
       expect(stats.charCount, 26);

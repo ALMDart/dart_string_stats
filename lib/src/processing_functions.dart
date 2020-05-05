@@ -11,3 +11,4 @@ export './processing_functions/non_empty_line_count.dart';
 export './processing_functions/substring_frequency.dart';
 export './processing_functions/word_count.dart';
 export './processing_functions/word_frequency.dart';
+export './processing_functions/statistics.dart';

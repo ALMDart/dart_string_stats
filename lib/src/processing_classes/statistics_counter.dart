@@ -12,6 +12,10 @@ class StatisticsCounter {
     add(str);
   }
 
+  /// Add another string to be processed, returns the counts collection.
+  /// filterNonChars removes non-chars from count.
+  /// end indicates final word to flush buffers and finalize count.
+  /// ignorePunctuation facilitates checking words that include symbols.
   StringStatistics add(String str,
       {bool ignorePunctuation = false,
       bool end = false,

@@ -8,31 +8,26 @@ class AllWordFrequencyCounter {
   /// Counts of each word encountered thus far.
   Map<String, int> get counts => _counts;
   final StringBuffer _buffer = StringBuffer();
-  final _ignorePunctuation;
 
-  /// ignorePunctuation facilitates checking words that include symbols.
-  AllWordFrequencyCounter({bool ignorePunctuation = false})
-      : _ignorePunctuation = ignorePunctuation;
+  AllWordFrequencyCounter();
 
   /// Creates a counter and adds parameter string.
-  /// ignorePunctuation facilitates checking words that include symbols.
-  AllWordFrequencyCounter.fromString(String str,
-      {bool ignorePunctuation = false})
-      : _ignorePunctuation = ignorePunctuation {
+  AllWordFrequencyCounter.fromString(String str) {
     add(str);
   }
 
   /// Add another string to be processed, returns the counts collection.
   /// end indicates final word to flush buffers and finalize count.
-  Map<String, int> add(String str, {bool end = false}) {
-    allWordFrequency(str, leftOvers: _buffer.toString(), continues: !end)
+  /// ignorePunctuation facilitates checking words that include symbols.
+  Map<String, int> add(String str, {bool end = false, bool ignorePunctuation = false}) {
+    allWordFrequency(str, leftOvers: _buffer.toString(), continues: !end, ignorePunctuation: ignorePunctuation)
         .forEach((key, val) {
       _counts.update(key, (val1) => val1 + val, ifAbsent: () => val);
     });
 
     for (var i = str.length - 1; i >= 0; i--) {
       if (str[i].isWhiteSpace ||
-          (!_ignorePunctuation && str[i].isPunctuation)) {
+          (!ignorePunctuation && str[i].isPunctuation)) {
         if (i == str.length - 1) {
           _buffer.clear();
         } else {

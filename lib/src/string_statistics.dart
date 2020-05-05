@@ -22,7 +22,7 @@ class StringStatistics {
 
   StringStatistics combine(StringStatistics stats) {
     final newCharFrequencies = <String, int>{};
-    newCharFrequencies.addAll(wordFrequencies);
+    newCharFrequencies.addAll(charFrequencies);
     for (final key in stats.charFrequencies.keys) {
       newCharFrequencies.update(key, (val) => val + stats.charFrequencies[key],
           ifAbsent: () => stats.charFrequencies[key]);

@@ -3,8 +3,9 @@ import 'package:string_stats/src/utility_extensions.dart';
 /// Determines the frequency of word within string.
 ///
 /// lastPos allows for incremental counting of a string over multiple calls
-/// by passing what remained of a word from a previous string. ignorePunctuation
-/// facilitates checking words that include symbols.
+/// by passing what remained of a word from a previous string.
+///
+/// ignorePunctuation facilitates checking words that include symbols.
 int wordFrequency(String str, String word,
     {int lastPos = 0, bool ignorePunctuation = false}) {
   var _wordFrequency = 0;

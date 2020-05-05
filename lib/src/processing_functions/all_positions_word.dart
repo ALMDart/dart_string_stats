@@ -2,6 +2,15 @@ import 'package:string_stats/src/position.dart';
 import 'package:string_stats/src/utility_extensions.dart';
 
 /// Determines all of the [Position]s of a specified word in parameter string str.
+///
+/// The default behavior of the function is to count the last substring beginning
+/// with white space as a word even if it ends without a whitespace or punctuation
+/// mark. leftOvers and continues allows for incremental counting of a string
+/// over multiple calls. leftOvers is what remained of a word from a previous
+/// string and continues indicates that the string will continue, preventing the
+/// count of the last whitespace lead substring.
+///
+/// ignorePunctuation facilitates checking words that include symbols.
 Set<Position> allPositionsWord(String str, String word,
     {String leftOvers = '',
     bool continues = false,

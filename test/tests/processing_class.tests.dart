@@ -1,4 +1,5 @@
 import 'package:string_stats/src/processing_classes.dart';
+import 'package:string_stats/src/processing_classes/statistics_counter.dart';
 import 'package:test/test.dart';
 
 void processing_class_tests() {
@@ -41,6 +42,36 @@ void processing_class_tests() {
       expect(counter.add('hfdtfdthfdh5 y'), 2);
       expect(counter.add(' a   a a aa   aaa  a  '), 11);
       expect(counter.add(' adgr g4 a afw4 geg a  '), 15);
+    });
+
+    test('StatisticsCounter works', () {
+      final statistics = StatisticsCounter();
+      var stats = statistics.add('\nword duck pond \n\n   \n martian');
+      stats = statistics.add('\nword duck pond \n\n   \n martian');
+
+      expect(stats.charCount, 2 * 26);
+      expect(stats.emptyLineCount, 2 * 2);
+      expect(stats.lineCount, 2 * 5);
+      expect(stats.nonEmptyLineCount, 2 * 3);
+      expect(stats.wordCount, 2 * 4 - 1);
+
+      final charFreqs = stats.charFrequencies;
+      expect(charFreqs.length, 14);
+      expect(charFreqs['w'], 2 * 1);
+      expect(charFreqs['o'], 2 * 2);
+
+      final wordFreqs = stats.wordFrequencies;
+      expect(wordFreqs.length, 4);
+      expect(wordFreqs['word'], 2 * 1);
+      expect(wordFreqs['martian'], 1);
+
+      final wordPos = stats.wordPositions;
+      expect(wordPos.length, 4);
+      expect(wordPos['word'].first.start, 1);
+      expect(wordPos['duck'].first.start, 6);
+
+      stats = statistics.add(' ');
+      expect(stats.wordFrequencies['martian'], 2);
     });
 
     test('WordFrequencyCounter works', () {

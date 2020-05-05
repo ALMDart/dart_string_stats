@@ -1,6 +1,8 @@
 import 'package:string_stats/src/utility_extensions.dart';
 
 /// Counts the frequency of all characters in the parameter string.
+///
+/// filterNonChars removes non-chars from count.
 Map<String, int> allCharFrequency(String str, {bool filterNonChars = true}) {
   final out = <String, int>{};
   for(final ch in str.split('')) {

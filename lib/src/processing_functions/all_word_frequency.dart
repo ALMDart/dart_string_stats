@@ -7,8 +7,9 @@ import 'package:string_stats/src/utility_extensions.dart';
 /// mark. leftOvers and continues allows for incremental counting of a string
 /// over multiple calls. leftOvers is what remained of a word from a previous
 /// string and continues indicates that the string will continue, preventing the
-/// count of the last whitespace lead substring. ignorePunctuation facilitates
-/// checking words that include symbols.
+/// count of the last whitespace lead substring.
+///
+/// ignorePunctuation facilitates checking words that include symbols.
 Map<String, int> allWordFrequency(String str,
     {String leftOvers = '',
     bool continues = false,

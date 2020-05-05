@@ -8,21 +8,17 @@ class WordCounter {
   /// Count of words encountered thus far.
   int get count => _count;
 
-  final _ignorePunctuation;
-
   /// ignorePunctuation facilitates checking words that include symbols.
-  WordCounter({bool ignorePunctuation = false})
-      : _ignorePunctuation = ignorePunctuation;
+  WordCounter();
 
   /// Creates a counter and adds parameter string.
-  /// ignorePunctuation facilitates checking words that include symbols.
-  WordCounter.fromString(String str, {bool ignorePunctuation = false})
-      : _ignorePunctuation = ignorePunctuation {
+  WordCounter.fromString(String str) {
     add(str);
   }
 
   /// Add another string to be processed, returns the counts.
-  int add(String str) {
+  /// ignorePunctuation facilitates checking words that include symbols.
+  int add(String str, {bool ignorePunctuation = false}) {
     if (str.isEmpty) {
       _inWord = false;
       return _count;
@@ -31,9 +27,11 @@ class WordCounter {
     _count += wordCount(str, inWord: _inWord);
 
     final lastChar = str[str.length - 1];
-    var punctuationContinue = !_ignorePunctuation && !lastChar.isPunctuation;
+    var punctuationContinue = !ignorePunctuation && !lastChar.isPunctuation;
     if (lastChar.isChar && !lastChar.isWhiteSpace && punctuationContinue) {
       _inWord = true;
+    } else {
+      _inWord = false;
     }
     return _count;
   }

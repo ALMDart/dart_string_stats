@@ -14,8 +14,9 @@ class CharCounter {
   }
 
   /// Add another string to be processed, returns count.
-  int add(String str) {
-    _count += charCount(str);
+  /// filterNonChars removes non-chars from count.
+  int add(String str, {bool filterNonChars = true}) {
+    _count += charCount(str, filterNonChars: filterNonChars);
     return _count;
   }
 }
