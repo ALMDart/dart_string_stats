@@ -10,5 +10,5 @@ int emptyLineCount(String str) {
       }
     }
   }
-  return _emptyLineCount;
+  return _emptyLineCount + 1;
 }
