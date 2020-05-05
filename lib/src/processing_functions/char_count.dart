@@ -4,7 +4,7 @@ import 'package:string_stats/src/utility_functions.dart';
 ///
 /// filterNonChars removes non-chars from count.
 int charCount(String str, {bool filterNonChars = true}) {
-  if(filterNonChars) {
+  if (filterNonChars) {
     return str.runes.where(isChar).length;
   } else {
     return str.runes.length;

@@ -1,4 +1,3 @@
-
 /// Finds the number of times substr is present within str.
 ///
 /// lastPos allows for incremental counting of a string over multiple calls
