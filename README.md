@@ -8,7 +8,8 @@ Particularly looking for help to strictly define what each of the utilities shou
 ### Description
 string_stats provides utility functions and classes for determining
 basic frequency statistics on strings. Provides support for
-asynchronous or incremental accumulation.
+asynchronous or incremental accumulation. Includes word count, character count,
+character frequency, word frequency, line count and more.
 
 ## Utilities
 
