@@ -14,7 +14,7 @@ void main() {
   allWordFrequency('word word word duck duck')['word']; // 3
 
   // allWordsPositions
-  allWordsPositions('mineral apple mineral coral mineral')['apple'].length; // 1
+  allWordsPositions('mineral apple mineral coral mineral')['apple']!.length; // 1
 
   // charCount
   charCount('12345\n 6'); // 7
@@ -26,7 +26,7 @@ void main() {
   emptyLineCount('\n\n'); // 3
 
   // firstPositionWord
-  firstPositionWord(' word ', 'word').end; // 4
+  firstPositionWord(' word ', 'word')!.end; // 4
 
   // lineCount
   lineCount('\nasdsd\n'); // 3

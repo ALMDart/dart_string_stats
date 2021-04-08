@@ -11,18 +11,18 @@ import 'package:string_stats/src/utility_extensions.dart';
 /// count of the last whitespace lead substring.
 ///
 /// ignorePunctuation facilitates checking words that include symbols.
-Position firstPositionWord(String str, String word,
-    {String leftOvers = '',
-    bool continues = false,
-    bool ignorePunctuation = false}) {
+Position? firstPositionWord(String? str, String? word,
+    {String? leftOvers = '',
+    bool? continues = false,
+    bool? ignorePunctuation = false}) {
   final sb = StringBuffer();
   sb.write(leftOvers);
-  final chars = str.split('');
+  final chars = str!.split('');
   var start = 0;
   for (var i = 0; i < chars.length; i++) {
     final ch = chars[i];
-    if (ch.isWhiteSpace || (!ignorePunctuation && ch.isPunctuation)) {
-      if (!continues && sb.isNotEmpty) {
+    if (ch.isWhiteSpace || (!ignorePunctuation! && ch.isPunctuation)) {
+      if (!continues! && sb.isNotEmpty) {
         final sbString = sb.toString();
         if (sbString == word) {
           return Position(start, i - 1);

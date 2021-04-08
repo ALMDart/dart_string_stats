@@ -38,20 +38,20 @@ void processing_function_tests() {
       expect(allWordsPositions('').length, 0);
 
       expect(allWordsPositions(' word ').length, 1);
-      expect(allWordsPositions(' word ')['word'].length, 1);
-      expect(allWordsPositions(' word ')['word'].first.start, 1);
-      expect(allWordsPositions(' word ')['word'].first.end, 4);
-      expect(allWordsPositions(' word ')['word'].first.length, 4);
+      expect(allWordsPositions(' word ')['word']!.length, 1);
+      expect(allWordsPositions(' word ')['word']!.first.start, 1);
+      expect(allWordsPositions(' word ')['word']!.first.end, 4);
+      expect(allWordsPositions(' word ')['word']!.first.length, 4);
 
       expect(allWordsPositions('mineral apple mineral coral mineral').length, 3);
 
-      expect(allWordsPositions('mineral apple mineral coral mineral')['mineral'].length, 3);
-      expect(allWordsPositions('mineral apple mineral coral mineral')['apple'].length, 1);
-      expect(allWordsPositions('mineral apple mineral coral mineral')['coral'].length, 1);
+      expect(allWordsPositions('mineral apple mineral coral mineral')['mineral']!.length, 3);
+      expect(allWordsPositions('mineral apple mineral coral mineral')['apple']!.length, 1);
+      expect(allWordsPositions('mineral apple mineral coral mineral')['coral']!.length, 1);
 
-      expect(allWordsPositions('mineral apple mineral coral mineral')['mineral'].last.length, 7);
-      expect(allWordsPositions('mineral apple mineral coral mineral')['mineral'].last.start, 28);
-      expect(allWordsPositions('mineral apple mineral coral mineral')['mineral'].last.end, 34);
+      expect(allWordsPositions('mineral apple mineral coral mineral')['mineral']!.last.length, 7);
+      expect(allWordsPositions('mineral apple mineral coral mineral')['mineral']!.last.start, 28);
+      expect(allWordsPositions('mineral apple mineral coral mineral')['mineral']!.last.end, 34);
     });
 
     test('charCount works', () {
@@ -96,13 +96,13 @@ void processing_function_tests() {
       expect(firstPositionWord('',null), null);
       expect(firstPositionWord('',''), null);
 
-      expect(firstPositionWord(' word ', 'word').start, 1);
-      expect(firstPositionWord(' word ', 'word').end, 4);
-      expect(firstPositionWord(' word ', 'word').length, 4);
+      expect(firstPositionWord(' word ', 'word')!.start, 1);
+      expect(firstPositionWord(' word ', 'word')!.end, 4);
+      expect(firstPositionWord(' word ', 'word')!.length, 4);
 
-      expect(firstPositionWord(' apple mineral coral', 'mineral').start, 7);
-      expect(firstPositionWord(' apple mineral coral', 'mineral').end, 13);
-      expect(firstPositionWord(' apple mineral coral', 'mineral').length, 7);
+      expect(firstPositionWord(' apple mineral coral', 'mineral')!.start, 7);
+      expect(firstPositionWord(' apple mineral coral', 'mineral')!.end, 13);
+      expect(firstPositionWord(' apple mineral coral', 'mineral')!.length, 7);
     });
 
     test('lineCount works', () {
@@ -143,9 +143,9 @@ void processing_function_tests() {
       expect(wordFreqs['word'], 1);
 
       final wordPos = stats.wordPositions;
-      expect(wordPos.length, 4);
-      expect(wordPos['word'].first.start, 1);
-      expect(wordPos['duck'].first.start, 6);
+      expect(wordPos!.length, 4);
+      expect(wordPos['word']!.first!.start, 1);
+      expect(wordPos['duck']!.first!.start, 6);
     });
 
     test('subStringFrequency works', () {
