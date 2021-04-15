@@ -57,7 +57,7 @@ void processing_class_tests() {
       var stats = statistics.add('\nword duck pond \n\n   \n martian');
       stats = statistics.add('\nword duck pond \n\n   \n martian');
 
-      expect(stats.charCount, 2 * 26);
+      expect(stats!.charCount, 2 * 26);
       expect(stats.emptyLineCount, 2 * 2);
       expect(stats.lineCount, 2 * 5);
       expect(stats.nonEmptyLineCount, 2 * 3);
@@ -74,12 +74,12 @@ void processing_class_tests() {
       expect(wordFreqs['martian'], 1);
 
       final wordPos = stats.wordPositions;
-      expect(wordPos.length, 4);
-      expect(wordPos['word'].first.start, 1);
-      expect(wordPos['duck'].first.start, 6);
+      expect(wordPos!.length, 4);
+      expect(wordPos['word']!.first!.start, 1);
+      expect(wordPos['duck']!.first!.start, 6);
 
       stats = statistics.add(' ');
-      expect(stats.wordFrequencies['martian'], 2);
+      expect(stats!.wordFrequencies['martian'], 2);
     });
 
     test('SubStringFrequencyCounter works', () {
