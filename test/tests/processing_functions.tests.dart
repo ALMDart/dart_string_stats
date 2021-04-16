@@ -144,8 +144,8 @@ void processing_function_tests() {
 
       final wordPos = stats.wordPositions;
       expect(wordPos!.length, 4);
-      expect(wordPos['word']!.first!.start, 1);
-      expect(wordPos['duck']!.first!.start, 6);
+      expect(wordPos['word']!.first.start, 1);
+      expect(wordPos['duck']!.first.start, 6);
     });
 
     test('subStringFrequency works', () {
