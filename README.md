@@ -55,4 +55,4 @@ character frequency, word frequency, line count and more.
 
 Please file feature requests and bugs at the [issue tracker][tracker].
 
-[tracker]: https://github.com/ALMaclaine/dart_string_stats/issues
+[tracker]: https://github.com/ALMDart/dart_string_stats/issues

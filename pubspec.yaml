@@ -1,8 +1,8 @@
 name: string_stats
 description: string_stats provides utility functions and classes for determining basic frequency statistics on strings. Provides support for asynchronous or incremental accumulation. Includes word count, character count, character frequency, word frequency, line count and more.
-version: 0.0.2+2
-homepage: https://github.com/ALMaclaine/dart_string_stats
-repository: https://github.com/ALMaclaine/dart_string_stats
+version: 0.1.0
+homepage: https://github.com/ALMDart/dart_string_stats
+repository: https://github.com/ALMDart/dart_string_stats
 
 environment:
   sdk: '>=2.12.0 <3.0.0'
